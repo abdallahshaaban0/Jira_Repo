@@ -1,0 +1,64 @@
+<div class="card card-parent">
+  <div class="card-body">
+    <p class="card-title card-purple"
+      [ngClass]='{"card-purple":Title == "Design Area","card-orange":Title == "Front-end Area","card-blue":Title == "Developement Area","card-green":Title == "Board Area"}'>
+      <span class='title-circle'></span> {{Title}}</p>
+    <div class="card-text dndList" dndDropzone dndEffectAllowed="move" (dndDrop)="onDrop($event, AreaData)">
+      <div dndPlaceholderRef class="dndPlaceholder"></div>
+      <div class='card' *ngFor='let obj of AreaData; index as i;' [dndDraggable]="obj" (mouseenter)='obj.showEdit=true;'
+        (mouseleave)='obj.showEdit=false;' [dndType]="obj" dndEffectAllowed="move"
+        (dndMoved)="onDragged(obj, AreaData)">
+        <div class='card-body'>
+          <div class='card-title'>
+            {{obj.title  }}
+            <i *ngIf='obj.showEdit'
+              [ngClass]='{"card-purple":Title == "Design Area","card-orange":Title == "Front-end Area","card-blue":Title == "Developement Area","card-green":Title == "Board Area"}'
+              (click)='openModal(editModal,obj,i)' class="material-icons pull-right">
+              edit
+            </i>
+          </div>
+          <div class='card-text'>
+            {{obj.description}}
+          </div>
+        </div>
+      </div>
+      <div class="alert-message" [hidden]='AreaData.length !== 0'
+        [ngClass]='{"card-purple":Title == "Design Area","card-orange":Title == "Front-end Area","card-blue":Title == "Developement Area","card-green":Title == "Board Area"}'>
+        <p>
+          Greats, you'd finished your tasks in This Area</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #editModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit <span class='text-primary'>{{task.title}}</span></h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form [formGroup]='taskForm' (ngSubmit)='editForm()' novalidate>
+      <div class='form-group'>
+        <input type='text' [ngClass]='{"border-red":taskForm.get("title").hasError("required") &&
+          (taskForm.get("title").dirty || taskForm.get("title").touched)}' class='form-control' formControlName='title'
+          placeholder="Enter Task Name (required)" />
+        <!-- <div class="text-danger" *ngIf="
+                    taskForm.get('title').hasError('required') &&
+                    (taskForm.get('title').dirty || taskForm.get('title').touched)
+                  ">
+            This Field is required.
+          </div> -->
+      </div>
+      <div class='form-group'>
+        <textarea type='text' class='form-control' formControlName='description'
+          placeholder="Enter Description (optional)"></textarea>
+      </div>
+      <div class='text-center'>
+        <button class='btn btn-primary' [disabled]='taskForm.invalid' type='submit'>Save</button>
+        <button class='btn btn-danger' type='button' (click)='removeItem(id)'>Remove</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

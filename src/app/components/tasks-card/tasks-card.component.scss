@@ -1,0 +1,115 @@
+.card-parent {
+  margin-bottom: 10px;
+  width: 300px;
+  -webkit-box-shadow: 1px 1px 3px #999999;
+  box-shadow: 1px 1px 3px #999999;
+  .card-body {
+    padding: 1rem;
+    .card-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      span.title-circle {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        border: 1px solid;
+        display: inline-block;
+      }
+      .pull-right{
+          float:right;
+          cursor:pointer;
+      }
+    }
+    .card-text {
+      font-family: 'Roboto', sans-serif;
+      .card {
+        margin-top: 5px;
+        .card-body {
+          padding: 0.75rem;
+          div.card-title {
+            font-size: 15px;
+            margin: 0;
+            font-weight: 700;
+          }
+          .card-text {
+            font-size: 14px;
+            font-family: monospace;
+            margin: 5px 0 0 4px;
+          }
+        }
+      }
+      .alert-message {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 200px;
+        margin-left: 7px;
+      }
+    }
+  }
+}
+.card-purple {
+  color: #7148fc;
+}
+.card-orange {
+  color: #f5a623;
+}
+.card-blue {
+  color: #4a90e2;
+}
+.card-green {
+  color: #04cda0;
+}
+.dndList {
+  -webkit-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+
+  min-width: 200px;
+  min-height: 200px;
+
+  overflow-y: auto;
+
+  &.dndDragover {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    border-color: green;
+  }
+}
+
+.dndDragging {
+  border: 1px solid green;
+}
+
+.dndDraggingSource {
+  display: none;
+}
+
+.dndPlaceholder {
+  min-height: 48px;
+  border: 1px dashed green;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger{
+    margin-left:20px;
+}
+@media (max-width:1260px){
+    .card-parent{
+        width:250px;
+    }
+}
+@media (max-width:1260px){
+    .card-parent{
+        width:230px;
+    }
+}
