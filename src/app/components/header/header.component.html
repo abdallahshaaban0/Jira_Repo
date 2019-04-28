@@ -1,0 +1,35 @@
+<header>
+  <nav class="d-flex justify-content-between align-items-center">
+    <a class='navbar-brand' routerLink='/home'>
+      <i class="material-icons logo">
+        border_all
+      </i>
+      <span class='page-name'>
+        <b>
+          Board
+        </b>
+      </span>
+    </a>
+    <b class='header-title'>Hello.</b>
+    <div>
+      <span class='search-input'>
+        <i class="material-icons search-icon">&#xe8b6;</i>
+        <input class="search-bar" type="text" placeholder="Search...">
+      </span>
+      <div class="btn-group" dropdown>
+        <a class="dropdown-toggle" dropdownToggle href="javascript:void(0)" role="button">
+          <img width='40' height='40' src='../../../assets/img/download.png' alt='image_title' />
+          <b class=''><i>Hi, </i>Khalid</b>
+          <span class="caret"></span>
+        </a>
+        <ul *dropdownMenu class="dropdown-menu" role="menu">
+          <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)">
+              <i class="material-icons">
+                person_outline
+              </i><span class="li-text">profile</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</header>
