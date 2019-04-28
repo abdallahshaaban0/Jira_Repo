@@ -1,0 +1,14 @@
+.container-fluid {
+  .card-parent {
+    min-width: 275px;
+  }
+}
+.add-btn-purple {
+  color: #7148fc;
+  font-size: 70px;
+  opacity: 0.5;
+}
+.add-btn-purple:hover{
+    transition: 2s linear opacity;
+    opacity:1;
+}
